@@ -40,6 +40,7 @@ def user_inputs():
         except ValueError as e:
             print(e, ERROR_MSG2)
 
+# Menu selection list as outlined in assignment
 def user_menu_selection():
     while True:
         selection_list = ['A','R','U','I','O','Q']
@@ -57,6 +58,7 @@ def user_menu_selection():
             print(ERROR_MSG)
     return user_selection
 
+# Match case statements are used to implement the add item, remove item, update item (change item), output item descriptions, output shopping cart, and quit options
 while True:
     menu_option = user_menu_selection()
 
@@ -64,7 +66,6 @@ while True:
         case 'A':
             user_inputs()
             existing_record, item_position = shopping_cart.check_existing_item(user_items[-1]['user_item_name'])
-            print(existing_record, item_position)
             if existing_record:
                 print('Item already exists. Making updates instead. Make further updates using "Update" option.')
                 shopping_cart.modify_existing_item(item_position=item_position,price=user_items[-1]['user_item_price'],
